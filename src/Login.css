@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+.recuadro{
+    width: 100%;
+    background-color: #302c2c;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 200px;
+  }
+  
+  
+  .login{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(210deg, #aeffff 0, #78e6ff 25%, #79e0ee 50%, rgb(248, 255, 149) 80%,rgb(241, 178, 106) 100%); 
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 400%;
+    animation:  bg-animation 20s infinite alternate;
+  }
+  
+  .Compologin{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    margin-top: 100px;
+  }
+  
+  .Compologin input{
+    height: 30px;
+    width: 350px;
+    text-align: center;
+    font-family: "Montserrat",sans-serif;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid rgb(89, 242, 247);
+    background: none;
+   color: white;
+    margin-right: 40px;
+  }
+  
+  .Compologin input:after{
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+  }
+  
+  .login p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    margin-left:40px;
+    margin-top: 40px;
+  }
+  
+  .input2 {
+    margin-bottom: 40px;
+  }
+  
+  .botonlogear{
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    background-color: #fc7b31;
+    font-family: "Montserrat",sans-serif;
+    font-size: 20px;
+    margin-top: 40px;
+    transition: all 0.5s ease 0s;
+  }
+  
+  .botonlogear:hover{
+    background-color: #e7223c;
+    color: white;
+  }
+  
+  .inputprueba{
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-right: 40px;
+    display: flex;
+
+  }
+  
+  .Hola{
+    width: 35px;
+    height: 35px;
+    color: rgb(241, 178, 106);
+    margin-right: 20px;
+  }
+  
+  .olvidarPass{
+    width: 300px;
+    height: 30px;
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: "Montserrat";
+    background: none;
+    border:none;
+    font-size: 16px;
+    color: #e1f9fc;
+  }
+  
+  .olvidarPass:hover{
+    transition: all 0.3s ease;
+    color: #17d5ee;
+  }
+
+  .inputprueba p {
+      margin-bottom: 40px;
+  }
+
+  .descripcionLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 80px;
+    margin-bottom: 200px;
+  }
+
+  .descripcionLogin h1{
+      font-family: "Montserrat";
+      font-size: 40px;
+  }
+
+  .descripcionLogin p{
+      font-family: "Montserrat";
+      color: #302c2c;
+      font-size: 22px;
+      text-align: center;
+      line-height: 40px;
+  }
+
+  .descripcionLogin button{
+      width: 300px;
+      height: 60px;
+      font-size: 20px;
+      font-family: "Montserrat";
+      margin-top: 50px;
+      border-radius: 30px;
+      border: none;
+      background-color: #2673a7;
+      color: white;
+      transition: all 0.5s ease 0s;
+  }
+
+  .descripcionLogin button:hover{
+      background-color: #fc7b31;
+      color: black;
+  }
+
+  .lottielogin{
+    width:600px;
+  }
+
+  
+  @keyframes bg-animation {
+  0% {background-position: left;}
+  100% {background-position: right;}
+  }
+
+
+  .botonregister{
+
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .recuadrolog button{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    font-family: "Montserrat";
+    font-size: 25px;
+    background-color: #fc7b31;
+    border-radius: 30px;
+    color: rgb(0, 0, 0);
+  }
+
+  .iconosregister{
+    margin-left: 170px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+ 
+
+  .icono_google{
+    width: 30px;
+    height: 30px;
+    transition: all 0.5s ease 0s;
+  }
+
+  .icono_google:hover{
+    transform: scale(1.4);
+  }
+
+  #condicionesserv{
+    font-size: 17px;
+    margin-top: 40px;
+  }
+
+  .recuadro1{
+    width: 100%;
+    background-color: #302c2c;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .login1{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(210deg, #aeffff 0, #78e6ff 25%, #79e0ee 50%, rgb(248, 255, 149) 80%,rgb(241, 178, 106) 100%); 
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: 400%;
+    animation:  bg-animation 20s infinite alternate;
+  }
+  
+  .Compologin1{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    margin-top: 65px;
+  }
+
+  .recuadro1 p{
+    font-size: 20px;
+    color: white;
+    font-family: "Montserrat";
+    margin-left: 50px;
+  }
+
+  .recuadro1 input{
+    width:500px;
+    color: white;
+    font-family: "Montserrat";
+    font-size: 20px;
+    height: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background:none;
+    border: none;
+    border-bottom: solid 3px #21dde4;
+  }
+
+  .recuadro1 button{
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    background:#fc7b31;
+    font-family: "Montserrat";
+    font-size: 20px;
+    transition: all 0.5s ease 0s;
+  }
+
+  .recuadro1 button:hover{
+    background-color: #e7223c;
+    color: white;
+  }
+
+  #condicionesserv{
+    margin-bottom: 50px;
+    font-size: 15px;
+    color: rgb(212, 144, 16);
+    transition: all 0.5s ease 0s;
+  }
+
+  #condicionesserv:hover{
+    color: #e7223c;
+    transform: scale(1.1);
+
+  }
+
+  .descripcion_registro{
+    width: 800px;
+    margin-top: 65px;
+  }
+
+  .descripcion_registro p{
+    margin-top: 70px;
+    font-size: 20px;
+    font-family: "Montserrat";
+    line-height: 35px;
+  }
+
+  .descripcion_registro h1{
+    font-family: "Montserrat";
+    font-size: 40px;
+  }
+
+  .descripcion_registro{
+    margin-left: 120px;
+    margin-bottom: 100px;
+  }
+
+  
