@@ -14,7 +14,7 @@ export default function BotonLogin (props) {
     const [form,setForm] = useState({        
         nombre: null,
         correo: null,
-        contraseña: null,       //getNombre de la tabla usuario
+        contraseña: null,       
         iban: null,
         direccion: null,
         dni: null,
@@ -26,8 +26,11 @@ export default function BotonLogin (props) {
     const handleSubmit = async() =>{
         await axios.post('http://localhost:8080/usuarios/autenticar', form)
         .then(response =>{
-            localStorage.setItem("user", JSON.stringify(response.data))
-            console.log(response.data);
+            if(form.contraseña === response.data.contraseña){
+                a = response;
+            localStorage.setItem("user", JSON.stringify(a.data))
+            }
+            console.log(response.data.contraseña);
         })
         console.log(localStorage.getItem("user"));
         var a = JSON.parse(localStorage.getItem("user"));
