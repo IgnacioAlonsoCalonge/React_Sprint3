@@ -11,10 +11,11 @@ const Card2 = (props) => {
         </div>
         <h4>{props.title}</h4>
         <p>{props.descripcion}</p>
+        <p>Creado por {props.autor}</p>
         <div className='botonescolocados'>
           <button onClick={props.leer} id="boton_resumen">Resumen</button>
           <HiCheckCircle onClick={props.aceptar} id ="check"/>
-          <IoIosRemoveCircle id ="remoove"/>
+          <IoIosRemoveCircle onClick={props.rechazar} id ="remoove"/>
         </div>
     </div>
   )

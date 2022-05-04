@@ -63,8 +63,8 @@ export default class Resumenes extends React.Component {
       {this.state.datos.map((resumen,index)=>{
         if(resumen.publicado == true){
           return <Card key={resumen.id}
-          leer ={()=> this.downloadpdf(resumen.id)}
-          escuchar = {()=> this.downloadaudio(resumen.id)}
+          leer ={()=> this.downloadpdf(resumen)}
+          escuchar = {()=> this.downloadaudio(resumen)}
           foto1={fotos[index]}
           title={resumen.titulo}
           descripcion={resumen.descripcion}/>
@@ -78,9 +78,9 @@ export default class Resumenes extends React.Component {
     
   }
 
-  downloadpdf(identificador) {
+  downloadpdf(resumen) {
      axios({
-       url: 'http://localhost:8080/resumenes/'+identificador+'/pdf',
+       url: 'http://localhost:8080/resumenes/'+resumen.id+'/pdf',
        method: 'GET',
        responseType: 'blob'
      }).then((response) => {
@@ -88,16 +88,16 @@ export default class Resumenes extends React.Component {
        const url = window.URL.createObjectURL(new Blob([response.data]));
        const link = document.createElement('a');
        link.href = url;
-       link.setAttribute('download', 'resumen.pdf')
+       link.setAttribute('download', resumen.titulo+'.pdf')
        document.body.appendChild(link)
        link.click()
      })
     
   }
 
-  downloadaudio(identificador) {
+  downloadaudio(resumen) {
     axios({
-      url: "http://localhost:8080/resumenes/"+identificador+"/mp3",
+      url: "http://localhost:8080/resumenes/"+resumen.id+"/mp3",
       method: 'GET',
       responseType: 'blob'
     }).then((response) => {
@@ -105,7 +105,7 @@ export default class Resumenes extends React.Component {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'resumen.mp3')
+      link.setAttribute('download', resumen.titulo+'.mp3')
       document.body.appendChild(link)
       link.click()
     })

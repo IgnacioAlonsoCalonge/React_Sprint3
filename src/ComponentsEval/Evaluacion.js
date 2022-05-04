@@ -61,11 +61,13 @@ export default class Evaluaciones extends React.Component {
       {this.state.datos.map((resumen,index)=>{
         if(resumen.publicado == false){
           return <Card2 key={resumen.id}
-          leer ={()=> this.downloadpdf(resumen.id)}
+          leer ={()=> this.downloadpdf(resumen)}
           aceptar = {()=> this.aceptar(resumen.id)}
+          rechazar = {()=> this.rechazar(resumen.id)}
           foto1={fotos[index]}
           title={resumen.titulo}
-          descripcion={resumen.descripcion}/>
+          descripcion={resumen.descripcion}
+          autor={resumen.autor}/>
         }
 
       })}
@@ -74,9 +76,9 @@ export default class Evaluaciones extends React.Component {
     );
   }
 
-  downloadpdf(identificador) {
+  downloadpdf(resumen) {
     axios({
-      url: 'http://localhost:8080/resumenes/'+identificador+'/pdf',
+      url: 'http://localhost:8080/resumenes/'+resumen.id+'/pdf',
       method: 'GET',
       responseType: 'blob'
     }).then((response) => {
@@ -84,7 +86,7 @@ export default class Evaluaciones extends React.Component {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'resumen.pdf')
+      link.setAttribute('download', resumen.titulo+'.pdf')
       document.body.appendChild(link)
       link.click()
     })
@@ -93,7 +95,13 @@ export default class Evaluaciones extends React.Component {
    async aceptar(identificador){
 
     await axios.put("http://localhost:8080/resumenes/"+identificador)
+    window.location.reload(true);
+   }
 
+   async rechazar(identificador){
+
+    await axios.delete("http://localhost:8080/resumenes/"+identificador)
+    window.location.reload(true);
    }
 
 }
