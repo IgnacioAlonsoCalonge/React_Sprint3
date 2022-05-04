@@ -4,10 +4,11 @@ import axios from 'axios'
 
 export default function Enviar() {
 
+    var a = JSON.parse(localStorage.getItem("user"));
     const [form,setForm] = useState({
         id: null,
         titulo: null,
-        autor:'',       //getNombre de la tabla usuario
+        autor: a.nombre,       //getNombre de la tabla usuario
         likes: 0,
         audio: null,
         imagen: null,
@@ -22,6 +23,8 @@ export default function Enviar() {
             ...form,
             [e.target.name]:e.target.value,
         })
+       
+        console.log(form)
     }
 
     const handleFileChange = (e) => {

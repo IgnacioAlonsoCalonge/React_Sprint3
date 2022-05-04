@@ -26,6 +26,7 @@ export default class NavBarFinal extends React.Component{
     cambio(){
         localStorage.clear();
         this.setState({estado:null})
+        window.location.reload(true);
     }
 
 

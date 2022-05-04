@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Formulario () {
-
+  
+  var a = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
     const [form,setForm] = useState({
         id: null,
         titulo: null,
-        autor:'',       //getNombre de la tabla usuario
+        autor: a.nombre,       //getNombre de la tabla usuario
         likes: 0,
         audio: null,
         imagen: null,
@@ -38,6 +39,7 @@ export default function Formulario () {
             ...form,
             [e.target.name]:e.target.value,
         })
+        console.log(form)
     }
 
     const handleFileChange = (e) => {
@@ -74,6 +76,8 @@ export default function Formulario () {
         await axios.post('http://localhost:8080/resumenes/crear', form)
         console.log(form);
         alert("Enviado");
+        console.log(a.name)
+        window.location.reload(true);
       }
 
       else{

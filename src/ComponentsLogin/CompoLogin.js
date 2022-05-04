@@ -35,9 +35,10 @@ export default function BotonLogin (props) {
         console.log(localStorage.getItem("user"));
         var a = JSON.parse(localStorage.getItem("user"));
         console.log(a.nombre)
-        alert("Enviado");
-
+        
         navigate("/resumenes");
+        window.location.reload(true);
+        
     }
 
     const handleChange = (e) =>{
