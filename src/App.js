@@ -22,7 +22,7 @@ function App() {
   if(a!= null){
     console.log(a.admin);
   }
-    if(a != null && a.admin == false){
+    if(a != null && a.admin === false){
     return (
       <div className="App">
         <NavBarFinal/>
@@ -42,7 +42,7 @@ function App() {
 
 
   }
-  else if(a == null){
+  else if(a === null){
 
     return(
     <div className="App">
@@ -63,7 +63,7 @@ function App() {
 
   }
 
-  else if (a != null && a.admin == true){
+  else if (a != null && a.admin === true){
     return(
       <div className="App">
       <NavBarFinal/>
@@ -71,6 +71,7 @@ function App() {
       <Route path='/' element={<Resumenes/>}/>
       <Route path='/resumenes' element={<Resumenes/>}/>
       <Route path='/evaluaciones' element={<Evaluaciones/>}/>
+      <Route path='/miPerfil' element={<MiPerfil/>}/>
       <Route path='/enviar' element={<Enviar/>}/>
       </Routes>
   

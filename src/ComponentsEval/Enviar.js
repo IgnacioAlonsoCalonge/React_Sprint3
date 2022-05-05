@@ -27,6 +27,35 @@ export default function Enviar() {
         console.log(form)
     }
 
+    const handleImgChange = (e) => {
+        //Read File
+        var selectedFile = document.getElementById("formImg").files;
+        //Check File is not Empty
+        if (selectedFile.length > 0) {
+            // Select the very first file from list
+            var fileToLoad = selectedFile[0];
+            // FileReader function for read the file.
+            var fileReader = new FileReader();
+            var base64;
+            // Onload of file read the file content
+            fileReader.onload = function() {
+               
+                // Print data in console
+                var arrayAuxiliar=[];
+                base64 = fileReader.result;
+                
+                arrayAuxiliar=base64.split(',');
+                console.log(arrayAuxiliar[1]);
+                
+                setForm({
+                  ...form,
+                  imagen : arrayAuxiliar[1]})
+            };
+            // Convert data to base64
+            fileReader.readAsDataURL(fileToLoad);
+        }                  
+   }
+
     const handleFileChange = (e) => {
         //Read File
         var selectedFile = document.getElementById("formFile").files;
@@ -136,7 +165,8 @@ const premium = () =>{
                 />
                 <p>Imagen del resumen</p>
                 <div className='imagenflex01'>
-                <input></input>
+                <input className="form-control" type="file" id="formImg" 
+                name='imagen' onChange={handleImgChange} />
                 </div>
                 <p>Resumen</p>
                 <div className='imagenflex01'>

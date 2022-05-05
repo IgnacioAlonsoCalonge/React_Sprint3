@@ -1,19 +1,10 @@
 
 import Card from './ComponentsResumen/Card';
 import './Resumenes.css';
-import foto from "./Img/websiteimg.jpg"
-import foto2 from "./Img/oficina.jpg"
-import foto3 from "./Img/imagenhola.png"
-import foto4 from "./Img/empresas.jpg"
-import foto5 from "./Img/felicidad.jpg"
-import foto6 from "./Img/amigos.jpg"
-import foto7 from "./Img/viajar.jpg"
-import foto8 from "./Img/plandenegocio.jpg"
 import Primerabarra from './ComponentsResumen/Primerabarra';
 import React from 'react';
 import axios from 'axios';
 
-let fotos = [];
 
 export default class Resumenes extends React.Component {
 
@@ -26,7 +17,6 @@ export default class Resumenes extends React.Component {
 			datos: [[]]
 		};
 
-    fotos = [foto,foto2,foto3,foto4,foto5,foto6,foto7,foto8];
     this.downloadpdf = this.downloadpdf.bind(this);
     this.downloadaudio = this.downloadaudio.bind(this);
    
@@ -60,12 +50,12 @@ export default class Resumenes extends React.Component {
       <input id = "input_01" placeholder='Buscar'></input>
       </div>
       <div className='resumenesflex'>
-      {this.state.datos.map((resumen,index)=>{
-        if(resumen.publicado == true){
+      {this.state.datos.map((resumen)=>{
+        if(resumen.publicado === true){
           return <Card key={resumen.id}
           leer ={()=> this.downloadpdf(resumen)}
           escuchar = {()=> this.downloadaudio(resumen)}
-          foto1={fotos[index]}
+          foto1={"data:image/png;base64,"+ resumen.imagen}
           title={resumen.titulo}
           descripcion={resumen.descripcion}/>
         }
