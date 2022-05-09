@@ -4,7 +4,7 @@ import './Resumenes.css';
 import Primerabarra from './ComponentsResumen/Primerabarra';
 import React from 'react';
 import axios from 'axios';
-
+const a = JSON.parse(localStorage.getItem("user"));
 
 export default class Resumenes extends React.Component {
 

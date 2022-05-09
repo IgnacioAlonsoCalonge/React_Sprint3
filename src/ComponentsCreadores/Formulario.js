@@ -10,11 +10,20 @@ export default function Formulario () {
   
   var a = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+  var b;
+
+  if(a==null){
+    b=null
+  }
+
+  else{
+    b=a.nombre;
+  }
 
     const [form,setForm] = useState({
         id: null,
         titulo: null,
-        autor: a.nombre,       //getNombre de la tabla usuario
+        autor: b,       //getNombre de la tabla usuario
         likes: 0,
         audio: null,
         imagen: null,
@@ -70,6 +79,35 @@ export default function Formulario () {
              fileReader.readAsDataURL(fileToLoad);
             }
     }
+
+    const handleImgChange = (e) => {
+      //Read File
+      var selectedFile = document.getElementById("formImg").files;
+      //Check File is not Empty
+      if (selectedFile.length > 0) {
+          // Select the very first file from list
+          var fileToLoad = selectedFile[0];
+          // FileReader function for read the file.
+          var fileReader = new FileReader();
+          var base64;
+          // Onload of file read the file content
+          fileReader.onload = function() {
+             
+              // Print data in console
+              var arrayAuxiliar=[];
+              base64 = fileReader.result;
+              
+              arrayAuxiliar=base64.split(',');
+              console.log(arrayAuxiliar[1]);
+              
+              setForm({
+                ...form,
+                imagen : arrayAuxiliar[1]})
+          };
+          // Convert data to base64
+          fileReader.readAsDataURL(fileToLoad);
+      }                  
+ }
     
     const handleSubmit = async() =>{
         if(JSON.parse(localStorage.getItem("user")) != null){
@@ -90,7 +128,8 @@ export default function Formulario () {
     <div className="formulario">
        
         <p>Foto de la portada</p>
-            <input></input>
+        <input className="form-control" type="file" id="formImg" 
+                name='imagen' onChange={handleImgChange} />
             <p>Resumen a evaluar</p>
             <div className="resumenformulario">
             <input className="form-control" type="file" id="formFile" name='documento' onChange={handleFileChange} />

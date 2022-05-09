@@ -29,11 +29,7 @@ export default class Evaluaciones extends React.Component {
 
     this.setState({datos: resumenes});
 
-    console.log(resumenes[0])
-    
-    console.log(resumenes[0].titulo)
-
-    console.log(this.state.datos[0].titulo)
+    console.log(resumenes[2])
     
 	}
 
