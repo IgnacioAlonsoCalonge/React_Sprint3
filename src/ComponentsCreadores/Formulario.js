@@ -29,7 +29,7 @@ export default function Formulario () {
         imagen: null,
         documento: null,
         publicado: 'false',
-        acceso: 'Demo',
+        acceso: 'gratuito',
         descripcion:''
     })
     
