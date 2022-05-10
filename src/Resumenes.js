@@ -47,7 +47,7 @@ export default class Resumenes extends React.Component {
       {
       this.state.datos.map((resumen)=>{
 
-         if(resumen.publicado === true && a===null && resumen.acceso === 'gratuito'){
+         if(resumen.publicado === true && a===null && resumen.acceso === 'demo'){
           return <Card key={resumen.id}
           leer ={()=> this.downloadpdf(resumen)}
           escuchar = {()=> this.downloadaudio(resumen)}
@@ -57,7 +57,7 @@ export default class Resumenes extends React.Component {
         }
 
         else if(a !==null){
-           if(resumen.publicado === true && a.premium === false && resumen.acceso==='gratuito'){
+           if(resumen.publicado === true && a.premium === false && resumen.acceso==='gratuito' || resumen.acceso==='demo'){
             return <Card key={resumen.id}
             leer ={()=> this.downloadpdf(resumen)}
             escuchar = {()=> this.downloadaudio(resumen)}
