@@ -29,12 +29,6 @@ export default class Resumenes extends React.Component {
 		let resumenes = await response.json();
 
     this.setState({datos: resumenes});
-
-    console.log(resumenes[0])
-    
-    console.log(resumenes[0].titulo)
-
-    console.log(this.state.datos[0].titulo)
     
 	}
 
@@ -50,8 +44,10 @@ export default class Resumenes extends React.Component {
       <input id = "input_01" placeholder='Buscar'></input>
       </div>
       <div className='resumenesflex'>
-      {this.state.datos.map((resumen)=>{
-        if(resumen.publicado === true){
+      {
+      this.state.datos.map((resumen)=>{
+
+         if(resumen.publicado === true && a===null && resumen.acceso === 'gratuito'){
           return <Card key={resumen.id}
           leer ={()=> this.downloadpdf(resumen)}
           escuchar = {()=> this.downloadaudio(resumen)}
@@ -60,6 +56,25 @@ export default class Resumenes extends React.Component {
           descripcion={resumen.descripcion}/>
         }
 
+        else if(a !==null){
+           if(resumen.publicado === true && a.premium === false && resumen.acceso==='gratuito'){
+            return <Card key={resumen.id}
+            leer ={()=> this.downloadpdf(resumen)}
+            escuchar = {()=> this.downloadaudio(resumen)}
+            foto1={"data:image/png;base64,"+ resumen.imagen}
+            title={resumen.titulo}
+            descripcion={resumen.descripcion}/>
+          }
+
+          else if(resumen.publicado === true && a.premium === true ){         
+              return <Card key={resumen.id}
+              leer ={()=> this.downloadpdf(resumen)}
+              escuchar = {()=> this.downloadaudio(resumen)}
+              foto1={"data:image/png;base64,"+ resumen.imagen}
+              title={resumen.titulo}
+              descripcion={resumen.descripcion}/>
+          }
+        }
       })}
       </div>
 
